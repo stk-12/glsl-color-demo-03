@@ -1,0 +1,46 @@
+:root {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  font-family: 'Bebas Neue', cursive;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.container {
+  position: relative;
+}
+.inner {
+  width: 100%;
+  height: 100vh;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+ul {
+  list-style: none;
+  a {
+    text-decoration: none;
+    font-size: 16vw;
+    line-height: 1;
+    -webkit-text-stroke: 2px #fff;
+    text-stroke: 2px #fff;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    &:hover {
+      color: transparent;
+      filter: drop-shadow(0 0 .55rem #fff);
+    }
+  }
+}
