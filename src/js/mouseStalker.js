@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 
 export class MouseStalker {
   constructor() {
+    this.body = document.body;
     this.stalker = document.querySelector('.js-stalker');
     this.links = document.querySelectorAll('.js-link')
 
@@ -35,6 +36,14 @@ export class MouseStalker {
     this.stalker.classList.remove('is-active');
   }
 
+  _inWindow() {
+    this.stalker.classList.remove('is-hide');
+  }
+
+  _outWindow() {
+    this.stalker.classList.add('is-hide');
+  }
+
   _update() {
     gsap.ticker.add(()=>{
       let dt = 1.0 - Math.pow(1.0 - this.speed, gsap.ticker.deltaRatio());
@@ -54,5 +63,8 @@ export class MouseStalker {
       link.addEventListener('mouseenter', this._onMouse.bind(this));
       link.addEventListener('mouseleave', this._outMouse.bind(this));
     });
+
+    this.body.addEventListener('mouseleave', this._outWindow.bind(this));
+    this.body.addEventListener('mouseenter', this._inWindow.bind(this));
   }
 }
