@@ -1,5 +1,6 @@
 import '../css/style.scss'
 import * as THREE from "three";
+import { MouseStalker } from './mouseStalker';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
 import vertexSource from "./shader/vertexShader.glsl";
@@ -58,6 +59,8 @@ class Main {
     };
 
     this.clock = new THREE.Clock();
+
+    this.mouseStalker = new MouseStalker();
 
     this.init();
     // this._init();
