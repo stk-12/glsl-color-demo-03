@@ -48,11 +48,17 @@ class Main {
         new THREE.Color(0xc6bde9),
         new THREE.Color(0x4aacf1)
       ],
+      // neon: [
+      //   new THREE.Color(0xffadfd),
+      //   new THREE.Color(0xf049fc),
+      //   new THREE.Color(0x7123fa),
+      //   new THREE.Color(0x570a85)
+      // ],
       neon: [
-        new THREE.Color(0xffadfd),
-        new THREE.Color(0xf049fc),
-        new THREE.Color(0x7123fa),
-        new THREE.Color(0x570a85)
+        new THREE.Color(0xC729F2),
+        new THREE.Color(0x0B2740),
+        new THREE.Color(0x13DCF2),
+        new THREE.Color(0x7B17A6),
       ],
       psychedlic: [
         new THREE.Color(0x3A2170),
