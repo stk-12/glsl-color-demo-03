@@ -28,6 +28,47 @@ class Main {
     this.mesh = null;
     this.cubeMesh = null;
 
+    this.colors = {
+      // color1: [
+      //   new THREE.Color(0x159f85),
+      //   new THREE.Color(0xf4d03e),
+      //   new THREE.Color(0xd33e8c),
+      //   new THREE.Color(0x014fc4)
+      // ],
+      // color2: [
+      //   new THREE.Color(0xfd0266),
+      //   new THREE.Color(0xf4d03e),
+      //   new THREE.Color(0xd33e8c),
+      //   new THREE.Color(0xa543b0)
+      // ],
+      default: [
+        new THREE.Color(0x8af6e4),
+        new THREE.Color(0xfccbfc),
+        new THREE.Color(0xc6bde9),
+        new THREE.Color(0x4aacf1)
+      ],
+      neon: [
+        new THREE.Color(0xffadfd),
+        new THREE.Color(0xf049fc),
+        new THREE.Color(0x7123fa),
+        new THREE.Color(0x570a85)
+      ],
+      psychedlic: [
+        new THREE.Color(0x3A2170),
+        new THREE.Color(0xDB831C),
+        new THREE.Color(0xBE2924),
+        new THREE.Color(0x11808C)
+      ],
+      disco: [
+        new THREE.Color(0xce96fb),
+        new THREE.Color(0xff8fcf),
+        new THREE.Color(0x00c2ba),
+        new THREE.Color(0x037a90)
+      ],
+    }
+
+    this.links = document.querySelectorAll('.js-link');
+
     this.uniforms = {
       uTime: {
         value: 0.0
@@ -45,16 +86,16 @@ class Main {
         value: new THREE.Vector2(1.0, 1.0)
       },
       uColor1: {
-        value: new THREE.Color(0x159f85)
+        value: this.colors.default[0]
       },
       uColor2: {
-        value: new THREE.Color(0xf4d03e)
+        value: this.colors.default[1]
       },
       uColor3: {
-        value: new THREE.Color(0xd33e8c)
+        value: this.colors.default[2]
       },
       uColor4: {
-        value: new THREE.Color(0x014fc4)
+        value: this.colors.default[3]
       }
     };
 
@@ -135,6 +176,17 @@ class Main {
     this.scene.add(this.cubeMesh);
   }
 
+  _setColor(e) {
+    const data = e.target.dataset.color;
+    // console.log(data);
+
+    // console.log(this.colors[data][0]);
+    this.uniforms.uColor1.value = this.colors[data][0];
+    this.uniforms.uColor2.value = this.colors[data][1];
+    this.uniforms.uColor3.value = this.colors[data][2];
+    this.uniforms.uColor4.value = this.colors[data][3];
+  }
+
   init() {
     this._setRenderer();
     this._setCamera();
@@ -181,6 +233,9 @@ class Main {
 
   _addEvent() {
     window.addEventListener("resize", this._onResize.bind(this));
+    this.links.forEach((link)=>{
+      link.addEventListener('mouseenter', this._setColor.bind(this));
+    })
   }
 }
 
