@@ -1,5 +1,6 @@
 import '../css/style.scss'
 import * as THREE from "three";
+import { gsap } from "gsap";
 import { MouseStalker } from './mouseStalker';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
@@ -178,13 +179,31 @@ class Main {
 
   _setColor(e) {
     const data = e.target.dataset.color;
-    // console.log(data);
 
-    // console.log(this.colors[data][0]);
-    this.uniforms.uColor1.value = this.colors[data][0];
-    this.uniforms.uColor2.value = this.colors[data][1];
-    this.uniforms.uColor3.value = this.colors[data][2];
-    this.uniforms.uColor4.value = this.colors[data][3];
+    gsap.to(this.uniforms.uColor1.value, {
+      r: this.colors[data][0].r,
+      g: this.colors[data][0].g,
+      b: this.colors[data][0].b,
+      duration: 1.4,
+    })
+    gsap.to(this.uniforms.uColor2.value, {
+      r: this.colors[data][1].r,
+      g: this.colors[data][1].g,
+      b: this.colors[data][1].b,
+      duration: 1.4,
+    })
+    gsap.to(this.uniforms.uColor3.value, {
+      r: this.colors[data][2].r,
+      g: this.colors[data][2].g,
+      b: this.colors[data][2].b,
+      duration: 1.4,
+    })
+    gsap.to(this.uniforms.uColor4.value, {
+      r: this.colors[data][3].r,
+      g: this.colors[data][3].g,
+      b: this.colors[data][3].b,
+      duration: 1.4,
+    })
   }
 
   init() {

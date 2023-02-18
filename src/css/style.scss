@@ -60,14 +60,15 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1px solid #fff;
-    opacity: 0.7;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    // opacity: 0.7;
     filter: drop-shadow(0 0 0.5rem #fff);
-    transition: transform 0.3s cubic-bezier(.57,-0.35,0,1.13);
+    transition: transform 0.3s cubic-bezier(.57,-0.35,0,1.13), color 0.3s linear;
   }
   &.is-active {
     &::before {
       transform: scale(1.6);
+      background: rgba(255, 255, 255, 0.5);
     }
   }
   &.is-hide {
