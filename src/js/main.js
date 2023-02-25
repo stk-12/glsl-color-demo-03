@@ -30,29 +30,11 @@ class Main {
     this.cubeMesh = null;
 
     this.colors = {
-      // color1: [
-      //   new THREE.Color(0x159f85),
-      //   new THREE.Color(0xf4d03e),
-      //   new THREE.Color(0xd33e8c),
-      //   new THREE.Color(0x014fc4)
-      // ],
-      // color2: [
-      //   new THREE.Color(0xfd0266),
-      //   new THREE.Color(0xf4d03e),
-      //   new THREE.Color(0xd33e8c),
-      //   new THREE.Color(0xa543b0)
-      // ],
-      default: [
-        new THREE.Color(0x8af6e4),
-        new THREE.Color(0xfccbfc),
-        new THREE.Color(0xc6bde9),
-        new THREE.Color(0x4aacf1)
-      ],
-      // neon: [
-      //   new THREE.Color(0xffadfd),
-      //   new THREE.Color(0xf049fc),
-      //   new THREE.Color(0x7123fa),
-      //   new THREE.Color(0x570a85)
+      // default: [
+      //   new THREE.Color(0x8af6e4),
+      //   new THREE.Color(0xfccbfc),
+      //   new THREE.Color(0xc6bde9),
+      //   new THREE.Color(0x4aacf1)
       // ],
       neon: [
         new THREE.Color(0xC729F2),
@@ -71,6 +53,36 @@ class Main {
         new THREE.Color(0xff8fcf),
         new THREE.Color(0x00c2ba),
         new THREE.Color(0x037a90)
+      ],
+      nature: [
+        new THREE.Color(0xFED049),
+        new THREE.Color(0xCFFDE1),
+        new THREE.Color(0x68B984),
+        new THREE.Color(0x3D5656)
+      ],
+      space: [
+        new THREE.Color(0x111D5E),
+        new THREE.Color(0xC70039),
+        new THREE.Color(0xF37121),
+        new THREE.Color(0xC0E218)
+      ],
+      light: [
+        new THREE.Color(0xF7C8E0),
+        new THREE.Color(0xDFFFD8),
+        new THREE.Color(0xB4E4FF),
+        new THREE.Color(0x95BDFF),
+      ],
+      dark: [
+        new THREE.Color(0x2d2d29),
+        new THREE.Color(0x3ca2a2),
+        new THREE.Color(0x92c7a3),
+        new THREE.Color(0x215a6d),
+      ],
+      default: [
+        new THREE.Color(0xEB5353),
+        new THREE.Color(0xF9D923),
+        new THREE.Color(0x36AE7C),
+        new THREE.Color(0x187498)
       ],
     }
 
@@ -148,6 +160,7 @@ class Main {
     this.gui.addColor(this.uniforms.uColor2, 'value').name('Color 2').listen()
     this.gui.addColor(this.uniforms.uColor3, 'value').name('Color 3').listen()
     this.gui.addColor(this.uniforms.uColor4, 'value').name('Color 4').listen()
+    this.gui.hide();
   }
 
   _setControlls() {
