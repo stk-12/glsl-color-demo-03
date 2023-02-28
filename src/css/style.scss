@@ -26,13 +26,14 @@ canvas {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 ul {
   list-style: none;
   a {
     text-decoration: none;
-    font-size: 16vw;
-    line-height: 1;
+    font-size: 12vw;
+    line-height: 0.9;
     -webkit-text-stroke: 2px #fff;
     text-stroke: 2px #fff;
     color: #fff;
