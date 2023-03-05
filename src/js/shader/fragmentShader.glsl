@@ -11,6 +11,7 @@ uniform vec3 uColor3;
 uniform vec3 uColor4;
 
 #pragma glslify: snoise = require(glsl-noise/simplex/3d);
+#pragma glslify: snoise2 = require(glsl-noise/simplex/2d);
 
 void main() {
   vec2 uv = vUv;
@@ -25,6 +26,13 @@ void main() {
   );
 
   // float time = sin(uTime * 10.0) * 0.5 + 0.5;
+
+  //粒子ノイズ
+  // vec2 uvCoord = gl_FragCoord.xy * 0.4;
+  vec2 uvCoord = gl_FragCoord.xy * 0.15;
+  // vec3 noiseGrain = vec3(snoise2(uvCoord) * 0.05);
+  vec3 noiseGrain = vec3(snoise(vec3(uvCoord, sin(uTime * 2.0))) * 0.05);
+
 
   vec3 COLOR1 = uColor1;
   vec3 COLOR2 = uColor2;
@@ -58,5 +66,5 @@ void main() {
   vec3 color = mix(mix(COLOR1, COLOR2, noise), mix(COLOR4, COLOR3, noise), vUv.y + sin(uTime * 0.5));
   // vec3 color = mix(mix(COLOR1, COLOR2, noise), mix(COLOR4, COLOR3, noise), clamp(vUv.y + sin(uTime * 0.5), 0.0, 0.9));
   // vec3 color = mix(mix(GREEN, YELLOW, noise), mix(BLUE, RED, noise), noise * 0.5);
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(color + noiseGrain, 1.0);
 }
